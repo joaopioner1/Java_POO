@@ -5,9 +5,16 @@ public class Cliente_Supermercado {
 	
 	protected String nome;
 	public char sexo;
-	public short idade;
+	public int idade;
 	private boolean devedor;
 	private boolean credito;
+	
+	public Cliente_Supermercado(int idade, char sexo, String nome) {
+		
+		this.setIdade(idade);
+		this.setSexo(sexo);
+		this.setNome(nome);
+	}
 	
 	public void verificaStatus() {
 		
@@ -23,11 +30,32 @@ public class Cliente_Supermercado {
 		
 		if (this.getCredito() == true) {
 			System.out.println("Compra realizada com sucesso!");
+		} else {
+			System.out.println("Não é possível realizar a compra! Você está devendo.");
 		}
 	}
 	
 	public void apagarCliente() {
 		
+		if (this.getDevedor() == false && this.getCredito() == false ) {
+			this.setIdade(0);
+			this.setSexo('0');
+			this.setNome("");
+			this.setCredito(false);
+			this.setDevedor(false); //apgar o false pra ver o que acontece
+		} else {
+			System.out.println("Impossível apagar clinte! Ele possui crédito ou está devendo.");
+		}
+	}
+	
+	public void mostraInformacoes() {
+		
+		System.out.println("-----CLIENTE-----");
+		System.out.println("Nome: " + this.getNome());
+		System.out.println("Idade: " + this.getIdade());
+		System.out.println("Sexo: " + this.getSexo());
+		System.out.println("Devedor: " + this.getDevedor());
+		System.out.println("Crédito: " + this.getCredito());
 	}
 
 	public String getNome() {
@@ -46,12 +74,12 @@ public class Cliente_Supermercado {
 		this.sexo = sexo;
 	}
 
-	public short getIdade() {
+	public int getIdade() {
 		return idade;
 	}
 
-	public void setIdade(short idade) {
-		this.idade = idade;
+	public void setIdade(int i) {
+		this.idade = i;
 	}
 
 	public boolean getDevedor() {
@@ -69,6 +97,4 @@ public class Cliente_Supermercado {
 	public void setCredito(boolean credito) {
 		this.credito = credito;
 	}
-	
-	
 }
