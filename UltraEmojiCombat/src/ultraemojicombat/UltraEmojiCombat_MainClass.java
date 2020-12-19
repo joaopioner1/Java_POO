@@ -14,10 +14,10 @@ public class UltraEmojiCombat_MainClass {
 		l[5] = new Lutador("Usurpador", "Holanda", 35, 3, 19, 21, 1.90f, 96.3f);
 
 		Luta UFC = new Luta();
-		UFC.marcarLuta(l[4], l[3]);
+		UFC.marcarLuta(l[4], l[2]);
 		UFC.lutar();
+		l[4].status();
 		l[2].status();
-		l[1].status();
 		
 	}
 }

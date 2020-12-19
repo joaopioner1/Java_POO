@@ -66,8 +66,12 @@ public class Luta {
 				System.out.println("Ganhador: " + this.desafiante.getNome());
 				System.out.println("Pontos " + this.desafiado.getNome() + ": " + pontosA);
 				System.out.println("Pontos " + this.desafiante.getNome() + ": " + pontosB);
-			} else {
-				
+			} else if (pontosB == pontosA) {
+				this.desafiado.empatarLuta();
+				this.desafiante.empatarLuta();
+				System.out.println("Empate!");
+				System.out.println("Pontos " + this.desafiado.getNome() + ": " + pontosA);
+				System.out.println("Pontos " + this.desafiante.getNome() + ": " + pontosB);
 			}
 
 		} else {
