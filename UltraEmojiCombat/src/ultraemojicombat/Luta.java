@@ -1,16 +1,13 @@
 package ultraemojicombat;
 
-import java.util.Random;
-
 public class Luta {
 
-	private Lutador desafiado; // tipos abstratos de dados
-	private Lutador desafiante;
+	private Lutador desafiado, desafiante; // tipos abstratos de dados
 	private int rounds;
 	private boolean aprovada;
 
 	public void marcarLuta(Lutador l1, Lutador l2) {
-		if (l1.getCategoria().equals(l2.getCategoria()) && l1 != l2) {
+		if (l1.getCategoria().equals(l2.getCategoria()) && l1 != l2 && l1.getIdade() < 60 && l2.getIdade() < 60) {
 			this.aprovada = true;
 			this.desafiado = l1;
 			this.desafiante = l2;
@@ -28,29 +25,51 @@ public class Luta {
 			System.out.println("\n++ DESAFIANTE ++");
 			this.desafiante.apresentar();
 
-			Random aleatorio = new Random();
-			int vencedor = aleatorio.nextInt(3);
+			int pontosA = 0, pontosB = 0;
 			
-			System.out.println("\n@@@ RESULTADO DA LUTA @@@");
-			switch (vencedor) {
-			case 0:
-				System.out.println("A luta empatou!\n");
-				this.desafiado.empatarLuta();
-				this.desafiante.empatarLuta();
-				break;
+			if (this.desafiado.getIdade() >= 30 && this.desafiado.getIdade() <= 45) {
+				pontosA += 1;
+			} else {
+				pontosA -= 1;
+			} if (this.desafiado.getPeso() >= 80 && this.desafiado.getPeso() <= 100) {
+				pontosA += 1;
+			} else {
+				pontosA -= 1;
+			} if (this.desafiado.getVitorias() >= 18 && this.desafiado.getDerrotas() <= 4 && this.desafiado.getEmpates() <= 5) {
+				pontosA += 2;
+			} else {
+				pontosB -= 1;
+			} if (this.desafiante.getIdade() >= 30 && this.desafiante.getIdade() <= 45) {
+				pontosB += 1;
+			} else {
+				pontosB -= 1;
+			} if (this.desafiante.getPeso() >= 80 && this.desafiante.getPeso() <= 100) {
+				pontosB += 1;
+			} else {
+				pontosB -= 1;
+			} if (this.desafiante.getVitorias() >= 18 && this.desafiante.getDerrotas() <= 4 && this.desafiante.getEmpates() <= 5) {
+				pontosB += 2;
+			} else {
+				pontosB -= 1;
+			}
 
-			case 1:
-				System.out.println("O Desafiado " + this.desafiado.getNome() + " venceu!!\n");				
+			System.out.println("\n@@@ RESULTADO DA LUTA @@@");
+			if (pontosA > pontosB) {
 				this.desafiado.ganharLuta();
 				this.desafiante.perderLuta();
-				break;
-
-			case 2:
-				System.out.println("O Desafiante " + this.desafiante.getNome() + " venceu!!\n");
-				this.desafiante.ganharLuta();
+				System.out.println("Ganhador: " + this.desafiado.getNome());
+				System.out.println("Pontos " + this.desafiado.getNome() + ": " + pontosA);
+				System.out.println("Pontos " + this.desafiante.getNome() + ": " + pontosB);
+			} else if (pontosB > pontosA) {
 				this.desafiado.perderLuta();
-				break;
+				this.desafiante.ganharLuta();
+				System.out.println("Ganhador: " + this.desafiante.getNome());
+				System.out.println("Pontos " + this.desafiado.getNome() + ": " + pontosA);
+				System.out.println("Pontos " + this.desafiante.getNome() + ": " + pontosB);
+			} else {
+				
 			}
+
 		} else {
 			System.out.println("Luta não aprovada!");
 		}
