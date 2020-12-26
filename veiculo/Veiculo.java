@@ -1,7 +1,7 @@
 package veiculo;
 
 public abstract class Veiculo {
-	
+	//Author: Joao Vitor Souza Pioner Date: 26/12/20202
 	private String cor;
 	private String modelo;
 	private String combustivel;
