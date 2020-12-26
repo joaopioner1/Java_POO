@@ -1,10 +1,24 @@
 package veiculo;
 
-public class Caminhao {
+public class Caminhao extends Caminhonete {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	private boolean carroceria;
+	
+	public void bascular () {
+		
+	}
+	
+	public void descerCarroceria() {
+		
+	}
+	
+	public boolean getCarroceria() {
+		return carroceria;
 	}
 
+	public void setCarroceria(boolean carroceria) {
+		this.carroceria = carroceria;
+	}
+	
+	
 }
