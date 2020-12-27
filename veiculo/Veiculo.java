@@ -1,23 +1,47 @@
 package veiculo;
 
 public abstract class Veiculo {
-	//Author: Joao Vitor Souza Pioner Date: 26/12/20202
-	private String cor;
-	private String modelo;
-	private String combustivel;
-	private double velocidadeMax;
-	private double capMaxCombustivel;
-	private double quantNoTanque;
-	private int anoCriacao;
-	private int capPessoas;
-	
+	// Author: Joao Vitor Souza Pioner Date: 26/12/20202
+
+	private String modelo, combustivel, cor;
+	private double capMaxCombustivel, quantNoTanque, velocidadeMax, velocidadeAtual;
+	private int anoCriacao, capPessoas;
+	private boolean ligar;
+
+	public void ligar() {
+		this.setLigar(true);
+	}
+
+	public void desligar() {
+		this.setLigar(false);
+	}
+
 	public void abastecer(double combNoTanque, double quantInserida) {
-		
 		if (combNoTanque < this.getCapMaxCombustivel() && quantInserida < this.getCapMaxCombustivel()) {
 			this.setQuantNoTanque(this.getQuantNoTanque() + quantInserida);
 			System.out.println("Abastecimento feito com sucesso!");
 		} else {
 			System.out.println("Impossível realizar abastecimento!");
+		}
+	}
+
+	public void acelerar(int acelerar) {
+
+		if (this.getLigar()) {
+			this.setVelocidadeAtual(this.getVelocidadeAtual() + acelerar);
+		} else {
+			System.out.println("Impossível acelerar porque o veículo está desligado.");
+		}
+	}
+
+	public void frear(double vel) {
+
+		if (this.getLigar() && this.getVelocidadeAtual() < 10) {
+			this.setVelocidadeAtual(0);
+		} else if (this.getVelocidadeAtual() > 0) {
+			this.setVelocidadeAtual(this.getVelocidadeAtual() - 10);
+		} else {
+			System.out.println("Impossível frear porque o veículo está desligado ou parado.");
 		}
 	}
 
@@ -83,5 +107,21 @@ public abstract class Veiculo {
 
 	public void setCapPessoas(int capPessoas) {
 		this.capPessoas = capPessoas;
+	}
+
+	public boolean getLigar() {
+		return ligar;
+	}
+
+	public void setLigar(boolean ligar) {
+		this.ligar = ligar;
+	}
+
+	public double getVelocidadeAtual() {
+		return velocidadeAtual;
+	}
+
+	public void setVelocidadeAtual(double velocidadeAtual) {
+		this.velocidadeAtual = velocidadeAtual;
 	}
 }
