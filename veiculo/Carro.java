@@ -1,13 +1,13 @@
 package veiculo;
 
 public class Carro extends Veiculo {
-	
+
 	private double motor;
 	private double quantPortas;
 	private boolean portasAF;
-	
+
 	public void abrirPortas() {
-		
+
 		if (this.getPortasAF() == false) {
 			this.setPortasAF(true);
 			System.out.println("Portas abertas!");
@@ -15,9 +15,15 @@ public class Carro extends Veiculo {
 			System.out.println("As portas já estão abertas!");
 		}
 	}
-	
-	public void fecharPortas() { 
+
+	public void fecharPortas() {
 		
+		if (this.getPortasAF()) {
+			this.setPortasAF(true);
+			System.out.println("Portas fechadas!");
+		} else {
+			System.out.println("Portas já estão fechadas!");
+		}
 	}
 
 	public double getMotor() {
@@ -43,6 +49,5 @@ public class Carro extends Veiculo {
 	public void setPortasAF(boolean portasAF) {
 		this.portasAF = portasAF;
 	}
-	
-	
+
 }
