@@ -6,10 +6,15 @@ public class Caminhonete extends Carro {
 	
 	public void carregar() {
 		
+		this.setCarga(true);
+		System.out.println("Caminhonete carregada!");
 	}
 	
 	public void descarregar() {
 		
+		if (this.getCarga()) {
+			System.out.println("Caminhonete descarregada!");
+		}
 	}
 	
 	public boolean getCarga() {
