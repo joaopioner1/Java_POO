@@ -34,7 +34,7 @@ public abstract class Veiculo {
 		}
 	}
 
-	public void frear(double vel) {
+	public void frear() {
 
 		if (this.getLigar() && this.getVelocidadeAtual() < 10) {
 			this.setVelocidadeAtual(0);

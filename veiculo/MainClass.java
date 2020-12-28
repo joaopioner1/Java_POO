@@ -4,10 +4,11 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
-		Caminhao caminhao = new Caminhao();
+		Caminhao caminhao[] = new Caminhao[2];
 		
+		caminhao[0] = new Caminhao();
 		//caminhao.ligar();
-		caminhao.bascular();
+		caminhao[0].bascular();
 		
 	}
 }
