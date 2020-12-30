@@ -15,6 +15,9 @@ public class MainClassVeiculo {
 		carro.status();
 		
 		Caminhonete cam = new Caminhonete();
+		
+		cam.abrirPortas();
+		cam.status();
 	}
 
 }
