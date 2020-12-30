@@ -1,11 +1,29 @@
 package veiculo2;
 
 public class Carro extends Veiculo {
+	//Sobreposicao
+	
+	@Override
+	public void ligar() {
+		if (this.getLigado() == false) {
+			this.setLigado(true);
+		} else {
+			System.out.println("Carro estava ligado.");
+		}
+	}
 
 	@Override
-	public void acelerar() {
+	public void desligar() {
 		if (this.getLigado()) {
-			this.setVelAtual(this.getVelAtual() + 10);
+			this.setLigado(false);
+		} else {
+			System.out.println("Carro estava desligado.");
+		}
+	}
+	@Override
+	public void acelerar(double acelera) {
+		if (this.getLigado()) {
+			this.setVelAtual(this.getVelAtual() + acelera);
 		} else {
 			System.out.println("Impossível acelerar, carro desligado.");
 		}
@@ -13,7 +31,7 @@ public class Carro extends Veiculo {
 
 	@Override
 	public void frear() {
-		if (this.getLigado()) {
+		if (this.getLigado() == true) {
 			if (this.getVelAtual() < 10) {
 				this.setVelAtual(0);
 			} else {
@@ -22,16 +40,6 @@ public class Carro extends Veiculo {
 		} else {
 			System.out.println("Carro desligado, impossível frear.");
 		}
-	}
-
-	@Override
-	public void ligar() {
-		this.setLigado(true);
-	}
-
-	@Override
-	public void desligar() {
-		this.setLigado(false);
 	}
 
 	@Override
@@ -64,8 +72,16 @@ public class Carro extends Veiculo {
 		System.out.println("Velocidade máxima: " + this.getVelMax());
 		System.out.println("--------------------------------");
 	}
-	
+	//Sobrecarga
 	public void buzinar(String frase) {
-		System.out.println("Saí da frente babaca!");
+		System.out.println(frase);
+	}
+	
+	public void buzinar(char a) {
+		System.out.println(a);
+	}
+	
+	public void buzinar() {
+		System.out.println("Butt out you bitch! get your ass out of my way! BIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 	}
 }

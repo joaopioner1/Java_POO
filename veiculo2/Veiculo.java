@@ -8,7 +8,7 @@ public abstract class Veiculo {
 	private double velMax, velAtual;
 	private int capMaxPes;
 	
-	public abstract void acelerar();
+	public abstract void acelerar(double acelera);
 	public abstract void frear();
 	public abstract void ligar();
 	public abstract void desligar();
