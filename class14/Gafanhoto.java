@@ -8,8 +8,8 @@ public class Gafanhoto extends Pessoa {
 	
 	public Gafanhoto(String nome, String sexo, int idade, String login, int totAssistido) {
 		super(nome, sexo, idade);
-		this.login = login;
-		this.totAssistido = totAssistido;
+		this.setLogin(login);
+		this.setTotAssistido(totAssistido);
 	}
 
 	public void viuMaisUM() {

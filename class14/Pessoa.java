@@ -46,6 +46,4 @@ public abstract class Pessoa {
 	public void setExperiencia(int experiencia) {
 		this.experiencia = experiencia;
 	}
-	
-	
 }
