@@ -7,13 +7,33 @@ public abstract class Lutadores {
 	private double maxDano, pontosVida, energia;
 	private boolean vivo, classificado;
 	
+	public void classificar() {
+		if (this.getMaxDano() > 50 || this.getMaxDano() < 10) {
+			System.out.println("Impossível classificar lutador pois o mesmo é muito fraco/forte!");
+			this.setClassificado(false);
+		} else {
+			System.out.println("Lutador classificado!");
+			this.setClassificado(true);
+		}
+	}
+	
+	public void mostrarStatus() {
+		System.out.println("<---Info sobre o lutador--->");
+		System.out.println("Nome: " + this.getNome() + "\nArma: " + this.getArma() + "\nEnergia: " + this.getEnergia());
+		System.out.println("Vivo: " + this.getVivo() + "\nClassificado: " + this.getClassificado() + "\nEspecial: " + this.getEspecial());
+		System.out.println("Pontos de vida: " + this.getPontosVida() + "\nMax de dano: " + this.getMaxDano());
+	}
+	
+	public void acabarLuta() { 
+		System.out.println("Mau perdedor!!! Arregou, você me envergonha!");
+		this.setClassificado(false);
+	}
+
 	public abstract void esquivar();
 	public abstract void golpeCritico();
 	public abstract void golpe();
 	public abstract void usarEspecial();
 	public abstract void carregarEnergia();
-	public abstract void acabarLuta();
-	public abstract void mostrarStatus();
 	
 	public String getNome() {
 		return nome;

@@ -31,18 +31,4 @@ public class Kutjal extends Lutadores {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void acabarLuta() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mostrarStatus() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
 }
